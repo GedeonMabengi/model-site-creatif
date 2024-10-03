@@ -1,0 +1,71 @@
+@import 'tailwindcss/base';
+/* @import 'tailwindcss/components'; */
+@import 'tailwindcss/utilities';
+
+/* my css style */
+html,body{
+    scroll-behavior: smooth;
+}
+
+.rounded-custom{/* la bordure arrondi du header*/
+    border-radius: 50px;
+}
+
+.bg-opac{
+    backdrop-filter: blur(10px);
+}
+
+.customShadow{
+    text-shadow: white 0.5px 0.5px 0,
+    white -0.5px -1px 0;
+}
+
+.left-custom-50{
+    left: 40%;
+}
+
+svg{
+    fill: #000;
+}
+
+.li-nav{
+    @apply py-4 md:py-0 md:mr-6 w-max
+}
+.a-nav{
+    @apply text-sm uppercase font-semibold w-max text-white
+}
+
+
+.swiper-pagination-bullet {
+    background: #000;
+}
+.swiper-pagination-bullet-active {
+    background: #1c944c;
+}
+
+/* style for blog section */
+.swiper-button-prev:after,.swiper-rtl .swiper-button-next:after {
+    content: '' !important;
+}
+.swiper-button-next:after,.swiper-rtl .swiper-button-prev:after {
+    content: '' !important;
+}
+.swiper-button-next svg,.swiper-button-prev svg {
+    width: 24px !important;
+    height: 24px !important;
+}
+.swiper-button-next,.swiper-button-prev {
+    position: relative !important;
+}
+.swiper-slide.swiper-slide-active {
+    --tw-border-opacity: 1 !important;
+    border-color: rgb(79 70 229 / var(--tw-border-opacity)) !important;
+}
+.swiper-slide.swiper-slide-active>.swiper-slide-active\:text-indigo-600 {
+    --tw-text-opacity: 1;
+    color: rgb(79 70 229 / var(--tw-text-opacity));
+}
+.swiper-slide.swiper-slide-active>.flex .grid .swiper-slide-active\:text-indigo-600 {
+    --tw-text-opacity: 1;
+    color: rgb(79 70 229 / var(--tw-text-opacity));
+}

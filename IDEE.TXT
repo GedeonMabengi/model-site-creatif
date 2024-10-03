@@ -1,0 +1,3 @@
+POUR LE BACKGROUND
+j'aurais besoin d'une animation des nombre binaire qui monte et descend un peu comme avec un webgl
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Celest-Tech</title>
+</head>
+
+<body id="top" class="bng-black text-white relative overflow-x-hidden">
+    <canvas id="crtNoise" width="800" height="600"></canvas>
+
+<script>
+  const canvas = document.getElementById('crtNoise');
+  const ctx = canvas.getContext('2d');
+
+  function drawNoise() {
+    const imageData = ctx.createImageData(canvas.width, canvas.height);
+    const buffer32 = new Uint32Array(imageData.data.buffer);
+    const len = buffer32.length;
+  
+    for (let i = 0; i < len; i++) {
+      if (Math.random() < 0.5) {
+        buffer32[i] = 0xff000000; // Noir
+      } else {
+        buffer32[i] = 0xffffffff; // Blanc
+      }
+    }
+  
+    ctx.putImageData(imageData, 0, 0);
+  }
+
+  function animateNoise() {
+    drawNoise();
+    requestAnimationFrame(animateNoise);
+  }
+
+  animateNoise();
+</script>
+
+
+
+</body>
+</html>

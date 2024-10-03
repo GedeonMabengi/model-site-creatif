@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Celest-Tech</title>
+</head>
+
+<body>
+  <canvas id="squizzleCanvas" width="800" height="600"></canvas>
+
+  <script>
+    const canvas = document.getElementById('squizzleCanvas');
+    const ctx = canvas.getContext('2d');
+  
+    const squizzleHeight = 5; // Hauteur des bandes
+    const squizzleSpeed = 2; // Vitesse de mouvement des bandes
+    let offset = 0;
+  
+    function drawSquizzle() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height); // Efface le canvas
+  
+      // Génération de plusieurs lignes horizontales avec distorsion
+      for (let y = 0; y < canvas.height; y += squizzleHeight) {
+        const distortion = (Math.random() - 0.5) * 20; // Crée une distorsion aléatoire entre -10 et 10
+  
+        ctx.save(); // Sauvegarde le contexte actuel
+  
+        // Déplace et distord le contexte pour créer l'effet de squizzle
+        ctx.translate(distortion, 0);
+  
+        // Remplir avec une couleur ou un bruit de fond
+        ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.2})`; // Couleur blanche avec opacité aléatoire
+        ctx.fillRect(0, y + offset, canvas.width, squizzleHeight);
+  
+        ctx.restore(); // Restaure le contexte pour la ligne suivante
+      }
+  
+      // Mise à jour de l'offset pour l'animation
+      offset += squizzleSpeed;
+      if (offset > squizzleHeight) {
+        offset = 0;
+      }
+    }
+  
+    function animateSquizzle() {
+      drawSquizzle();
+      requestAnimationFrame(animateSquizzle);
+    }
+  
+    animateSquizzle();
+  </script>
+  
+</body>
+</html>
